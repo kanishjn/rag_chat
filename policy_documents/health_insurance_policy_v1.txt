@@ -1,0 +1,14 @@
+Clause ID: H-001
+Policyholder Age Limits: This policy is available to individuals between the ages of 18 and 65.
+
+Clause ID: H-002
+Waiting Period for Surgeries: A mandatory waiting period of 12 months from the policy start date is applicable for all major surgeries. Knee replacement and related surgeries are classified as major surgeries.
+
+Clause ID: H-003
+Geographical Coverage: This policy covers medical treatments undertaken within India. Treatments in metro cities like Mumbai, Delhi, and Pune are covered up to 80% of the total billed amount. Treatments in other cities are covered up to 95%.
+
+Clause ID: H-004
+Co-payment Clause: A 10% co-payment is applicable for all claims made by policyholders over the age of 45 for major surgeries. This is in addition to other limits.
+
+Clause ID: H-005
+Payout for Knee Surgery: The maximum payout for a single knee surgery is capped at INR 250,000.
