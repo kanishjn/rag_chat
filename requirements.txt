@@ -1,0 +1,26 @@
+# --- FastAPI Web Server ---
+fastapi
+uvicorn[standard]  # The [standard] part includes performance extras
+
+# --- Environment & HTTP ---
+python-dotenv  # For loading variables from .env file
+requests       # For making HTTP requests to download documents
+
+# --- Core LangChain Libraries ---
+langchain
+langchain-community
+
+# --- LangChain Integrations ---
+langchain-chroma          # For ChromaDB vector store integration
+langchain-google-genai    # For Google Gemini embeddings and models
+
+# --- Google's Generative AI SDK ---
+google-generativeai
+
+# --- Vector Database ---
+chromadb
+
+# --- Document Loaders Dependencies ---
+pypdf         # Required by PyPDFLoader for .pdf files
+python-docx   # Required by Docx2txtLoader for .docx files
+tiktoken      # Often used by text splitters for tokenization
