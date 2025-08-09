@@ -1,5 +1,4 @@
 import os
-import uvicorn
 import traceback
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -17,7 +16,6 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 import google.generativeai as genai
 
-# ---------------- Config ----------------
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
@@ -27,22 +25,19 @@ genai.configure(api_key=GEMINI_API_KEY)
 MODEL_NAME = "gemini-1.5-flash"
 VECTOR_STORE_DIR = "vector_store"
 
-# ---------------- Pydantic Models ----------------
 class QARequest(BaseModel):
-    documents: str  # Document URL
+    documents: str  
     questions: List[str]
 
 class QAResponse(BaseModel):
     answers: List[str]
 
-# ---------------- FastAPI App ----------------
 app = FastAPI(
     title="Document Q&A API - Gemini (Optimized)",
     description="Memory-efficient, concise document Q&A using Gemini + Chroma",
     version="1.1.0"
 )
 
-# ---------------- Helpers ----------------
 def load_document_from_url(url: str):
     try:
         response = requests.get(url, timeout=20)
@@ -96,11 +91,9 @@ def create_or_load_vector_store(documents=None):
 
 
 
-# ---------------- API Endpoint ----------------
 @app.post("/hackrx/run", response_model=QAResponse)
 async def hackrx_run(request: QARequest):
     try:
-        # Load and embed document only if new
         docs = load_document_from_url(request.documents)
         retriever = create_or_load_vector_store(docs)
 
@@ -145,7 +138,6 @@ async def hackrx_run(request: QARequest):
 
             answers.append(ans)
 
-            # Free memory for each question
             gc.collect()
 
         return QAResponse(answers=answers)
